@@ -1,13 +1,12 @@
-version: "3"
+version: '2'
 services:
-  site:
-    command: jekyll serve
-    image: jekyll/jekyll:latest
+
+  api:
+    image: jekyll/jekyll
+    container_name: blog-personal
     volumes:
-      - $PWD:/srv/jekyll
-      - $PWD/vendor/bundle:/usr/local/bundle
+      - ./:/home/jekyll-blog-personal
+    working_dir: /home/jekyll-blog-personal
+    command: sh -c 'jekyll serve -s /home/jekyll-blog-personal --watch'
     ports:
-      - 4000:4000
-      - 35729:35729
-      - 3000:3000
-      -   80:4000
+      - "80:4000" 
