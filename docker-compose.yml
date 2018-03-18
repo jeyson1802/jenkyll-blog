@@ -5,7 +5,7 @@ services:
     image: jekyll/jekyll
     container_name: blog-personal
     volumes:
-      - ./:/home/jekyll-blog-personal
+      - /home/jekyll-blog-personal/:/home/jekyll-blog-personal
     working_dir: /home/jekyll-blog-personal
     command: sh -c 'jekyll serve -s /home/jekyll-blog-personal --watch'
     ports:
